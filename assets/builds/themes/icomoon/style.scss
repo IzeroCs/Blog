@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: 'icomoon';
-  src:  url('#{$icomoon-font-path}/icomoon.eot?fywvfw');
-  src:  url('#{$icomoon-font-path}/icomoon.eot?fywvfw#iefix') format('embedded-opentype'),
-    url('#{$icomoon-font-path}/icomoon.ttf?fywvfw') format('truetype'),
-    url('#{$icomoon-font-path}/icomoon.woff?fywvfw') format('woff'),
-    url('#{$icomoon-font-path}/icomoon.svg?fywvfw#icomoon') format('svg');
+  src:  url('#{$icomoon-font-path}/icomoon.eot?6sg79j');
+  src:  url('#{$icomoon-font-path}/icomoon.eot?6sg79j#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/icomoon.ttf?6sg79j') format('truetype'),
+    url('#{$icomoon-font-path}/icomoon.woff?6sg79j') format('woff'),
+    url('#{$icomoon-font-path}/icomoon.svg?6sg79j#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -36,6 +36,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-select-arrows {
+  &:before {
+    content: $icon-select-arrows; 
+  }
+}
+.icon-news {
+  &:before {
+    content: $icon-news; 
+  }
+}
+.icon-config {
+  &:before {
+    content: $icon-config; 
+  }
+}
+.icon-send {
+  &:before {
+    content: $icon-send; 
+  }
+}
 .icon-circle-right {
   &:before {
     content: $icon-circle-right; 
@@ -74,21 +94,6 @@
 .icon-layer {
   &:before {
     content: $icon-layer; 
-  }
-}
-.icon-news {
-  &:before {
-    content: $icon-news; 
-  }
-}
-.icon-config {
-  &:before {
-    content: $icon-config; 
-  }
-}
-.icon-send {
-  &:before {
-    content: $icon-send; 
   }
 }
 .icon-github {

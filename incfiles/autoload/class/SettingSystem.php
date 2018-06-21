@@ -92,4 +92,10 @@
             return self::$modifyAt;
         }
 
+        public static function __callStatic($name, $arguments)
+        {
+            dump($name);
+            dump($arguments);
+        }
+
     }

@@ -4,6 +4,7 @@
 
     use Librarys\UI\Alert;
     use Librarys\Util\Text\Strings;
+    use Librarys\File\FileSystem;
 
     require_once('global.php');
     require_header('Cài đặt hệ thống', ALERT_CONTROL_SETTING_SYSTEM);
@@ -11,9 +12,28 @@
     $actionForm = rewrite('url.control.setting_system');
     $forwardUrl = rewrite('url.control.home');
 
-    $subtitle    = SettingSystem::getSubTitle();
-    $description = SettingSystem::getDescription();
-    $keyword     = SettingSystem::getKeyword();
+    $subtitle            = SettingSystem::getSubTitle();
+    $description         = SettingSystem::getDescription();
+    $keyword             = SettingSystem::getKeyword();
+    $maxSizeThumbUpload  = SettingSystem::getMaxSizeThumbUpload();
+    $fileMimeThumbUpload = SettingSystem::getFileMimeThumbUpload();
+    $splitFileMimeThumbUpload = ',';
+
+    if (is_array($fileMimeThumbUpload) && count($fileMimeThumbUpload) > 0) {
+        $bufferMimeThumbUpload = null;
+        $countMimeThumbUpload = count($fileMimeThumbUpload);
+
+        foreach ($fileMimeThumbUpload AS $index => $mime) {
+            $bufferMimeThumbUpload .= $mime;
+
+            if ($index + 1 < $countMimeThumbUpload)
+                $bufferMimeThumbUpload .= $splitFileMimeThumbUpload;
+        }
+
+        $fileMimeThumbUpload = $bufferMimeThumbUpload;
+    } else {
+        $fileMimeThumbUpload = null;
+    }
 
     if (isset($_POST['change'])) {
         $subtitle    = Strings::escape($_POST['subtitle']);
@@ -49,9 +69,20 @@
                         </li>
                         <li class="select">
                             <span><?php echo lng('control.setting_system.input.label.max_size_thumb_upload'); ?></span>
-                            <select name="max_size_thumb_upload">
+                            <div class="select">
+                                <select name="max_size_thumb_upload">
+                                    <?php $sizeOrigin = 1024 * 1024; ?>
 
-                            </select>
+                                    <?php for ($i = 1; $i <= 5; ++$i) { ?>
+                                        <?php $sizeValue = $sizeOrigin * $i; ?>
+                                        <option value="<?php echo $sizeValue; ?>"><?php echo FileSystem::sizeToString($sizeValue); ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </li>
+                        <li class="input">
+                            <span><?php echo lng('control.setting_system.input.label.file_mime_thumb_upload', 'symbol', $splitFileMimeThumbUpload); ?></span>
+                            <input type="text" name="file_mime_thumb_upload" value="<?php echo $fileMimeThumbUpload; ?>" placeholder="<?php echo lng('control.setting_system.input.placeholder.input_file_mime_thumb_upload'); ?>" />
                         </li>
                         <li class="button">
                             <button type="submit" name="change">

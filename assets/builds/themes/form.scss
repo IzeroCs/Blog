@@ -28,7 +28,8 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 }
 
 input,
-textarea {
+textarea,
+select {
     color: $input-color;
     background-color: transparent;
     border: $input-border;
@@ -51,7 +52,9 @@ button {
 input:focus,
 input:hover,
 textarea:focus,
-textarea:hover {
+textarea:hover,
+select:focus,
+select:hover {
     color: $input-focus-color;
     border: $input-focus-border;
     outline: none;
@@ -59,7 +62,38 @@ textarea:hover {
 
 select {
     background-image: none;
+    position: relative;
+    cursor: pointer;
+
     @include appearance(none);
+
+    &::-ms-expand {
+        display: none;
+    }
+
+    option,
+    optgroup {
+        color: $input-focus-color;
+    }
+}
+
+div.select {
+    position: relative;
+
+    &:before {
+        color: $input-color;
+        content: $icon-select-arrows;
+        font-family: $font-icon;
+        position: absolute;
+        top: 0;
+        right: 10px;
+        height: $input-line-height;
+        line-height: $input-line-height;
+    }
+
+    &:hover:before {
+        color: $input-focus-color;
+    }
 }
 
 input[type=checkbox]:not(.none) {

@@ -32,7 +32,8 @@ div.form {
 
     ul.element {
         & > li.text,
-        & > li.input {
+        & > li.input,
+        & > li.select {
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -40,6 +41,7 @@ div.form {
 
         & > li.text > span,
         & > li.input > span,
+        & > li.select > span,
         & > li.checkbox > span:first-child {
             color: $form-label-color;
             display: block;
@@ -89,15 +91,28 @@ div.form {
             }
         }
 
-        & > li.input {
+        & > li.input,
+        & > li.select {
             padding: 10px;
             margin-bottom: 5px;
+        }
 
-            input {
+        & > li.input input {
+            margin-top: 15px;
+            margin-left: 10px;
+            padding: 0 10px;
+            width: 100%;
+        }
+
+        & > li.select {
+            div.select {
                 margin-top: 15px;
                 margin-left: 10px;
-                padding: 0 10px;
-                width: 100%;
+
+                select {
+                    padding: 0 10px;
+                    width: 100%;
+                }
             }
         }
 
