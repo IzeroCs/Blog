@@ -1,7 +1,7 @@
 <?php
 
     return [
-        'title' => 'Tạo bài viết',
+        'title'              => 'Tạo bài viết',
         'category_container' => 'Danh mục chứa:',
 
         'input' => [
@@ -13,8 +13,9 @@
 
             'checkbox' => [
                 'options' => [
-                    'title'          => 'Tùy chọn:',
-                    'hidden_article' => 'Ẩn bài viết'
+                    'title'                => 'Tùy chọn:',
+                    'hidden_article'       => 'Ẩn bài viết',
+                    'get_thumb_in_article' => 'Lấy ảnh bài viết làm mô tả'
                 ]
             ],
 

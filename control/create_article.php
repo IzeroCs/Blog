@@ -40,25 +40,26 @@
 
     if ($assocParent != null) {
         $actionForm = rewrite('url.control.create_artcile', [
-            'p' => '?' . PARAMETER_CONTROL_LIST_CATEGORY_ID . '=',
-            'id'        => Strings::urlencode($id)
+            'p'  => '?' . PARAMETER_CONTROL_LIST_CATEGORY_ID . '=',
+            'id' => Strings::urlencode($id)
         ]);
 
         $forwardUrl = rewrite('url.control.list_category', [
-            'p' => '?' . PARAMETER_CONTROL_LIST_CATEGORY_ID . '=',
-            'id'        => Strings::urlencode($id)
+            'p'  => '?' . PARAMETER_CONTROL_LIST_CATEGORY_ID . '=',
+            'id' => Strings::urlencode($id)
         ]);
     } else {
         $actionForm = rewrite('url.control.create_article');
         $forwardUrl = rewrite('url.control.list_category');
     }
 
-    $title    = null;
-    $seo      = null;
-    $url      = null;
-    $contents = null;
-    $hidden   = false;
-    $length   = 0;
+    $title             = null;
+    $seo               = null;
+    $url               = null;
+    $contents          = null;
+    $hidden            = false;
+    $getThumbInArticle = true;
+    $length            = 0;
 
     if (isset($_POST['create'])) {
         $title    = Strings::escape($_POST['title']);
@@ -70,6 +71,11 @@
             $hidden = boolval(Strings::escape($_POST['hidden']));
         else
             $hidden = false;
+
+        if (isset($_POST['get_thumb_in_article']))
+            $getThumbInArticle = boolval(Strings::escape($_POST['get_thumb_in_article']));
+        else
+            $getThumbInArticle = false;
 
         if (empty($title)) {
             Alert::danger(lng('control.create_article.alert.not_input_title'));
@@ -124,8 +130,8 @@
 
                 if ($queryCreate->execute() !== false) {
                     $urlGoto = rewrite('url.control.upload_thumb_article', [
-                        'p' => '?' . PARAMETER_CONTROL_ARTICLE_ID . '=',
-                        'id'        => $queryCreate->insertId()
+                        'p'  => '?' . PARAMETER_CONTROL_ARTICLE_ID . '=',
+                        'id' => $queryCreate->insertId()
                     ]);
 
                     Alert::success(lng('control.create_article.alert.create_article_success', 'name', $title), ALERT_CONTROL_UPLOAD_THUMB_ARTICLE, $urlGoto);
@@ -137,9 +143,9 @@
             }
         }
 
-        $title    = Strings::unescape($title);
-        $seo      = Strings::unescape($seo);
-        $url      = Strings::unescape($url);
+        $title = Strings::unescape($title);
+        $seo   = Strings::unescape($seo);
+        $url   = Strings::unescape($url);
     }
 ?>
 
@@ -149,8 +155,8 @@
                 'default_url' => rewrite('url.control.create_article'),
 
                 'begin_url' => rewrite('url.control.create_article', [
-                    'p' => '?' . PARAMETER_CONTROL_LIST_CATEGORY_ID . '=',
-                    'id'        => null
+                    'p'  => '?' . PARAMETER_CONTROL_LIST_CATEGORY_ID . '=',
+                    'id' => null
                 ]),
 
                 'end_url'     => null,
@@ -160,7 +166,7 @@
 
             <form action="<?php echo $actionForm; ?>" method="post" id="form-editor" class="not-loaded">
                 <input type="hidden" name="<?php echo cfsrTokenName(); ?>" value="<?php echo cfsrTokenValue(); ?>" />
-                <input type="hidden" name="create" value="<?php echo lng('control.create_article.button.create'); ?>"/>
+                <input type="hidden" name="create" value="<?php echo lng('control.create_article.button.create'); ?>" />
 
                 <div class="form padding-zero" id="editor-quill">
                     <textarea name="contents" id="contents" style="display: none"></textarea>
@@ -192,6 +198,12 @@
                                     <input type="checkbox" id="label_hidden" name="hidden" value="1"<?php if ($hidden) { ?> checked="checked" <?php } ?> />
                                     <label for="label_hidden">
                                         <span><?php echo lng('control.create_article.input.checkbox.options.hidden_article'); ?></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="label_get_thumb_in_article" name="get_thumb_in_article" value="1"<?php if ($getThumbInArticle) { ?> checked="checked" <?php } ?> />
+                                    <label for="label_get_thumb_in_article">
+                                        <span><?php echo lng('control.create_article.input.checkbox.options.get_thumb_in_article'); ?></span>
                                     </label>
                                 </li>
                             </ul>
@@ -303,15 +315,13 @@
                         if (qlEditor !== null)
                             qlEditor.innerHTML = "<?php echo Strings::escape($contents); ?>";
 
-                        var elementContent = document.querySelector("div#content");
+                        var elementContent = window;
                         var elementToolbar = editorQuill.querySelector("div.ql-toolbar");
                         var elementHeader = document.querySelector("div#header");
                         var elementEditorWrapper = document.querySelector("div#editor-wrapper");
                         var toolbarClone = null;
 
                         var eventScroll = function (e) {
-                            console.log(e);
-
                             var rectHeader = elementHeader.getBoundingClientRect();
                             var rectToolbar = elementToolbar.getBoundingClientRect();
                             var rectEditorWrapper = elementEditorWrapper.getBoundingClientRect();

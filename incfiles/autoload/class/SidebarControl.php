@@ -49,10 +49,10 @@
             if ($rewrites['create.article'] !== null)
                 self::add(lng('control.global.sidebar.create.title'), lng('control.global.sidebar.create.list.article'), $rewrites['create.article'], -1, false);
 
-//            self::addArray(lng('control.global.sidebar.setting.title'), [
-//                lng('control.global.sidebar.setting.list.system')  => rewrite('url.control.setting_system'),
-//                lng('control.global.sidebar.setting.list.account') => rewrite('url.control.setting_account')
-//            ]);
+            self::addArray(lng('control.global.sidebar.setting.title'), [
+                lng('control.global.sidebar.setting.list.system')  => rewrite('url.control.setting_system'),
+                lng('control.global.sidebar.setting.list.account') => rewrite('url.control.setting_account')
+            ]);
 
             if (self::$filerequire !== null)
                 require_once(self::$filerequire);

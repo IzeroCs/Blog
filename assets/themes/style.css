@@ -219,6 +219,7 @@ body {
     margin: 0;
     padding: 0;
     position: relative;
+    overflow: auto;
 }
 
 *,
@@ -748,6 +749,8 @@ div#container {
     top: 50px;
     z-index: 1;
     word-wrap: break-word;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 div#top-section {

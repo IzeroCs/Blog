@@ -22,3 +22,6 @@
     define('ALERT_CONTROL_MOVE_ARTICLE', 'control.move_article');
     define('ALERT_CONTROL_UPLOAD_IMAGE_TMP', 'control.upload_image_article');
     define('ALERT_CONTROL_UPLOAD_THUMB_ARTICLE', 'control.upload_thumb_article');
+
+    define('ALERT_CONTROL_SETTING_SYSTEM', 'control.setting_system');
+    define('ALERT_CONTROL_SETTING_ACCOUNT', 'control.setting_account');

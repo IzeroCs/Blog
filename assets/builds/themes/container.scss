@@ -3,4 +3,6 @@ div#container {
     top: $header-height;
     z-index: 1;
     word-wrap: break-word;
+    overflow-x: hidden;
+    overflow-y: auto;
 }

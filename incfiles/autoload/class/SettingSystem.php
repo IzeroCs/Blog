@@ -7,6 +7,8 @@
 
         private static $showAboutDev;
         private static $subtitle;
+        private static $description;
+        private static $keyword;
         private static $maxSizeThumbUpload;
         private static $fileMimeThumbUpload;
         private static $socialShare;
@@ -24,6 +26,8 @@
 
                     self::$showAboutDev        = boolval($assoc['show_about_dev']);
                     self::$subtitle            = $assoc['subtitle'];
+                    self::$description         = $assoc['description'];
+                    self::$keyword             = $assoc['keyword'];
                     self::$maxSizeThumbUpload  = intval($assoc['max_size_thumb_upload']);
                     self::$fileMimeThumbUpload = $assoc['file_mime_thumb_upload'];
                     self::$socialShare         = $assoc['social_share'];
@@ -51,6 +55,16 @@
         public static function getSubTitle()
         {
             return self::$subtitle;
+        }
+
+        public static function getDescription()
+        {
+            return self::$description;
+        }
+
+        public static function getKeyword()
+        {
+            return self::$keyword;
         }
 
         public static function getMaxSizeThumbUpload()

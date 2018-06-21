@@ -23,6 +23,8 @@
         {
             $schema->tinyint('show_about_dev', 2, 1)->null();
             $schema->varchar('subtitle', 100)->null();
+            $schema->varchar('description', 1500)->null();
+            $schema->varchar('keyword', 1500)->null();
             $schema->varchar('social_share', 3000)->null();
             $schema->mediumint('max_size_thumb_upload', 20)->null()->unsigned();
             $schema->varchar('file_mime_thumb_upload', 500)->null();
@@ -50,6 +52,8 @@
             $query->addDataArray([
                 'show_about_dev' => false,
                 'subtitle'       => ' - Blog',
+                'description'    => 'Blog by IzeroCs',
+                'keyword'        => 'Blog, IzeroCs',
                 'create_at'      => time(),
                 'modify_at'      => 0,
 
