@@ -1,0 +1,16 @@
+assets/upload
+assets/tmp
+node_modules
+!vendor/composer/
+!vendor/autoload.php
+vendor/fzaninotto
+quill
+manager
+.idea
+
+izerocs.blog.zip
+package-lock.json
+composer.lock
+.idea/dataSources.local.xml
+.idea/inspectionProfiles/
+.idea/workspace.xml

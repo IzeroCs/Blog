@@ -1,0 +1,124 @@
+input::-webkit-input-placeholder {
+    color: $input-placeholder-color;
+}
+
+input:-ms-input-placeholder {
+    color: $input-placeholder-color;
+}
+
+input:-moz-placeholder {
+    color: $input-placeholder-color;
+}
+
+input::-moz-placeholder {
+    color: $input-placeholder-color;
+}
+
+input[type=number] {
+    @include appearance(textfield);
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    @include appearance(none);
+}
+
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
+    background-color: transparent !important;
+    transition: background-color 5000s ease-in-out 5s;
+}
+
+input,
+textarea {
+    color: $input-color;
+    background-color: transparent;
+    border: $input-border;
+    font-size: $input-font-size;
+
+    @include box-sizing(border-box);
+
+    line-height: $input-line-height;
+    padding: 10px;
+    width: 100%;
+    height: $input-line-height;
+    outline: 0;
+}
+
+button {
+    cursor: pointer;
+    outline: 0;
+}
+
+input:focus,
+input:hover,
+textarea:focus,
+textarea:hover {
+    color: $input-focus-color;
+    border: $input-focus-border;
+    outline: none;
+}
+
+select {
+    background-image: none;
+    @include appearance(none);
+}
+
+input[type=checkbox]:not(.none) {
+    display: none;
+}
+
+input[type=checkbox] + label::before {
+    font-family: $font-icon;
+}
+
+input[type=checkbox] + label,
+input[type=checkbox] + label span,
+input[type=checkbox] + label::before {
+    cursor: pointer;
+
+    @include userSelect(none);
+}
+
+input[type=checkbox] + label::before {
+    color: $input-checkbox-unchecked-color;
+    content: $icon-checkbox-unchecked;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 18px;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    vertical-align: middle;
+    text-shadow: $input-checkbox-unchecked-text-shadow;
+}
+
+input[type=checkbox]:checked + label::before {
+    color: $input-checkbox-checked-color;
+    content: $icon-checkbox-checked;
+}
+
+input[type=checkbox] + label span {
+    color: $input-checkbox-unchecked-label-color;
+    margin-left: 5px;
+    line-height: 15px;
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+input[type=checkbox]:checked + label span {
+    color: $input-checkbox-checked-label-color;
+}
+
+input[type=checkbox]:checked:hover + label span {
+    color: $input-checkbox-checked-label-color-hover;
+}
+
+input[type=checkbox]:disabled + label span {
+    color: $input-checkbox-disable-color;
+}
+
+input[type=checkbox] + label.not-content {
+    background-color: transparent;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}

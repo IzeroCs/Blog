@@ -1,0 +1,36 @@
+{
+    "name": "izerocs/blog",
+    "description": "Blog",
+
+    "authors": [
+        {
+            "name": "Nguyen Danh Nam",
+            "email": "izero.cs@gmail.com"
+        }
+    ],
+
+    "autoload": {
+        "files": [
+            "incfiles/autoload/files/define.alert.php",
+            "incfiles/autoload/files/define.parameter.php",
+            "incfiles/autoload/files/function.php"
+        ],
+
+        "classmap": [
+            "incfiles/autoload/class"
+        ],
+
+        "psr-4": {
+            "Librarys\\": "librarys/"
+        }
+    },
+
+    "require": {
+
+    },
+
+    "require-dev": {
+        "fzaninotto/faker": "^1.7",
+        "andrefigueira/blog-article-faker": "^1.0"
+    }
+}

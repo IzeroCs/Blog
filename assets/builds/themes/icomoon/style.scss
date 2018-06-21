@@ -1,0 +1,244 @@
+@import "variables";
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('#{$icomoon-font-path}/icomoon.eot?fywvfw');
+  src:  url('#{$icomoon-font-path}/icomoon.eot?fywvfw#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/icomoon.ttf?fywvfw') format('truetype'),
+    url('#{$icomoon-font-path}/icomoon.woff?fywvfw') format('woff'),
+    url('#{$icomoon-font-path}/icomoon.svg?fywvfw#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  
+  /* Enable Ligatures ================ */
+  letter-spacing: 0;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: discretionary-ligatures;
+  font-variant-ligatures: discretionary-ligatures;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-circle-right {
+  &:before {
+    content: $icon-circle-right; 
+  }
+}
+.icon-circle-left {
+  &:before {
+    content: $icon-circle-left; 
+  }
+}
+.icon-circle {
+  &:before {
+    content: $icon-circle; 
+  }
+}
+.icon-search {
+  &:before {
+    content: $icon-search; 
+  }
+}
+.icon-pencil {
+  &:before {
+    content: $icon-pencil; 
+  }
+}
+.icon-plus-rect {
+  &:before {
+    content: $icon-plus-rect; 
+  }
+}
+.icon-minus-rect {
+  &:before {
+    content: $icon-minus-rect; 
+  }
+}
+.icon-layer {
+  &:before {
+    content: $icon-layer; 
+  }
+}
+.icon-news {
+  &:before {
+    content: $icon-news; 
+  }
+}
+.icon-config {
+  &:before {
+    content: $icon-config; 
+  }
+}
+.icon-send {
+  &:before {
+    content: $icon-send; 
+  }
+}
+.icon-github {
+  &:before {
+    content: $icon-github; 
+  }
+}
+.icon-setting {
+  &:before {
+    content: $icon-setting; 
+  }
+}
+.icon-home {
+  &:before {
+    content: $icon-home; 
+  }
+}
+.icon-info {
+  &:before {
+    content: $icon-info; 
+  }
+}
+.icon-danger {
+  &:before {
+    content: $icon-danger; 
+  }
+}
+.icon-warning {
+  &:before {
+    content: $icon-warning; 
+  }
+}
+.icon-success {
+  &:before {
+    content: $icon-success; 
+  }
+}
+.icon-list-circle {
+  &:before {
+    content: $icon-list-circle; 
+  }
+}
+.icon-menu-bold {
+  &:before {
+    content: $icon-menu-bold; 
+  }
+}
+.icon-list-rectange {
+  &:before {
+    content: $icon-list-rectange; 
+  }
+}
+.icon-shutdown {
+  &:before {
+    content: $icon-shutdown; 
+  }
+}
+.icon-trash {
+  &:before {
+    content: $icon-trash; 
+  }
+}
+.icon-key {
+  &:before {
+    content: $icon-key; 
+  }
+}
+.icon-rectange {
+  &:before {
+    content: $icon-rectange; 
+  }
+}
+.icon-google {
+  &:before {
+    content: $icon-google; 
+  }
+}
+.icon-twitter {
+  &:before {
+    content: $icon-twitter; 
+  }
+}
+.icon-facebook {
+  &:before {
+    content: $icon-facebook; 
+  }
+}
+.icon-profile {
+  &:before {
+    content: $icon-profile; 
+  }
+}
+.icon-email {
+  &:before {
+    content: $icon-email; 
+  }
+}
+.icon-date {
+  &:before {
+    content: $icon-date; 
+  }
+}
+.icon-user {
+  &:before {
+    content: $icon-user; 
+  }
+}
+.icon-view {
+  &:before {
+    content: $icon-view; 
+  }
+}
+.icon-checkbox-checked {
+  &:before {
+    content: $icon-checkbox-checked; 
+  }
+}
+.icon-checkbox-unchecked {
+  &:before {
+    content: $icon-checkbox-unchecked; 
+  }
+}
+.icon-radio-checked {
+  &:before {
+    content: $icon-radio-checked; 
+  }
+}
+.icon-radio-unchecked {
+  &:before {
+    content: $icon-radio-unchecked; 
+  }
+}
+.icon-plus {
+  &:before {
+    content: $icon-plus; 
+  }
+}
+.icon-camera {
+  &:before {
+    content: $icon-camera; 
+  }
+}
+.icon-camera-off {
+  &:before {
+    content: $icon-camera-off; 
+  }
+}
+.icon-menu {
+  &:before {
+    content: $icon-menu; 
+  }
+}
+

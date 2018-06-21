@@ -1,0 +1,107 @@
+div#sign {
+    background-color: $sign-background;
+    position: relative;
+    padding: 25px;
+    padding-top: 0;
+    padding-bottom: 10px;
+    max-width: $sign-max-width;
+    margin: 0 auto;
+
+    form {
+        ul,
+        ul li {
+            position: relative;
+            display: block;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+
+            &.input {
+                margin-bottom: 20px;
+
+                input {
+                    color: $sign-form-input-color;
+                    border: $sign-form-input-border;
+                    font-size: $sign-form-input-font-size;
+                    height: $sign-form-input-height;
+                    line-height: normal;
+                    display: block;
+                    width: 100%;
+                    padding-left: 50px;
+                    padding-right: 25px;
+                    -webkit-text-fill-color: $sign-form-input-color;
+                    box-sizing: border-box;
+
+                    &:hover + span.icomoon,
+                    &:focus + span.icomoon {
+                        color: $sign-form-input-color-hover;
+                    }
+
+                    &:hover,
+                    &:focus {
+                        color: $sign-form-input-color-hover;
+                        -webkit-text-fill-color: $sign-form-input-color-hover;
+                        border: $sign-form-input-border-hover;
+                    }
+                }
+
+                span.icomoon {
+                    color: $sign-form-input-color;
+                    font-size: 20px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: $sign-form-input-height;
+                    height: $sign-form-input-height;
+                    line-height: $sign-form-input-height;
+                    text-align: center;
+                }
+            }
+
+            &.button {
+                border-top: 1px dashed transparent;
+                margin-left: 10px;
+                margin-right: 10px;
+
+                a,
+                button {
+                    color: $sign-form-button-color;
+                    background-color: transparent;
+                    border: 0;
+                    outline: 0;
+                    font-size: $sign-form-button-font-size;
+                    display: inline-block;
+                    width: 49%;
+                    height: $sign-form-button-height;
+                    line-height: $sign-form-button-height;
+                    margin: 0;
+                    padding: 0;
+                    cursor: pointer;
+                    text-align: center;
+
+                    &:hover span {
+                        color: $sign-form-button-color-hover;
+                    }
+                }
+            }
+        }
+    }
+
+    ul.alert {
+        margin-top: -20px;
+        margin-bottom: 20px;
+    }
+
+    ul.alert,
+    ul.alert li {
+        @include box-shadow(none);
+    }
+
+    ul.alert li {
+        background-color: transparent;
+        border: 0;
+    }
+}

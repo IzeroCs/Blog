@@ -1,0 +1,16 @@
+body {
+    background-color: $body-background;
+    opacity: 1 !important;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+*,
+body {
+    font-family: $font-all;
+}
+
+pre {
+    font-family: $font-pre;
+}

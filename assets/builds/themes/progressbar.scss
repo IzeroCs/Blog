@@ -1,0 +1,13 @@
+div#progressbar {
+    display: block;
+
+    @include linearGradientLeftRight($progessbar-gradient-left-color, $progessbar-gradient-right-color);
+    @include box-shadow($progressbar-box-shadow);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: $progressbar-height;
+    z-index: 10000;
+}

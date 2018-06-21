@@ -1,0 +1,252 @@
+div.form {
+    background-color: $form-background;
+    border: $form-border;
+    margin-bottom: 30px;
+    padding: 10px;
+
+    & > div.title {
+        border-bottom: $form-title-border-bottom;
+        padding: 15px;
+
+        & > span {
+            color: $form-title-color;
+            font-size: $form-title-font-size;
+        }
+    }
+
+    &.padding-zero {
+        padding: 0;
+    }
+
+    &.padding-bottom {
+        padding-bottom: 10px;
+    }
+
+    ul.element,
+    ul.element > li {
+        display: block;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul.element {
+        & > li.text,
+        & > li.input {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        & > li.text > span,
+        & > li.input > span,
+        & > li.checkbox > span:first-child {
+            color: $form-label-color;
+            display: block;
+            font-weight: normal;
+            font-size: $form-label-font-size;
+        }
+
+        & > li.text {
+            border-bottom: $form-text-border-bottom;
+            padding: 10px;
+            padding-left: 0;
+            padding-top: 5px;
+            padding-bottom: 15px;
+            margin-left: 10px;
+            margin-bottom: 15px;
+
+            & > span {
+                display: inline-block;
+
+                &.value {
+                    color: $form-text-value-color;
+                }
+            }
+
+            &.left {
+                text-align: left;
+            }
+
+            &.center {
+                text-align: center;
+            }
+
+            &.right {
+                text-align: right;
+            }
+        }
+
+        & > li.message-accept {
+            color: $form-message-accept-color;
+            font-size: $form-message-accept-font-size;
+            padding: 10px;
+            line-height: $form-message-accept-line-height;
+            text-align: center;
+
+            .name {
+                color: $form-message-accept-name-color;
+            }
+        }
+
+        & > li.input {
+            padding: 10px;
+            margin-bottom: 5px;
+
+            input {
+                margin-top: 15px;
+                margin-left: 10px;
+                padding: 0 10px;
+                width: 100%;
+            }
+        }
+
+        & > li.checkbox {
+            padding: 10px;
+
+            & > span:first-child {
+                display: block;
+                margin-bottom: 10px;
+
+                & + ul {
+                    margin-left: 15px;
+                }
+            }
+
+            ul,
+            ul li {
+                display: block;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            ul li {
+                padding-top: 4px;
+                padding-bottom: 4px;
+            }
+        }
+
+        & > li.thumb-drag {
+            position: relative;
+            text-align: center;
+
+            img {
+                position: relative;
+                z-index: 1;
+            }
+
+            span.icomoon {
+                color: $form-thumb-drag-icon-color;
+                font-size: $form-thumb-drag-icon-font-size;
+                line-height: 100%;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 100%;
+                z-index: 0;
+
+                @include transform(translateY(-50%));
+            }
+
+            div.thumb {
+                cursor: pointer;
+                border: $form-thumb-drag-border;
+                position: relative;
+
+                &:hover {
+                    border-color: $form-thumb-drag-border-hover;
+
+                    div.tips {
+                        display: block;
+                    }
+                }
+            }
+
+            div.tips {
+                display: none;
+                background-color: $form-thumb-drag-tips-background;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 2;
+
+                span {
+                    display: inline-block;
+                    color: $form-thumb-drag-tips-color;
+                    font-size: $form-thumb-drag-tips-font-size;
+                    font-family: $font-coda;
+                    position: absolute;
+                    width: 100%;
+                }
+
+                span:not(#default) {
+                    top: 50%;
+                    left: 50%;
+
+                    @include transform(translate(-50%, -50%));
+                }
+
+                span#default {
+                    display: none;
+                    position: absolute;
+                    bottom: 3%;
+                    left: 50%;
+                    line-height: 30px;
+                    cursor: pointer;
+
+                    @include transform(translateX(-50%));
+                }
+            }
+        }
+
+        & > li.button {
+            margin: 0;
+            margin-top: 20px;
+            height: $form-button-height;
+            width: 100%;
+            overflow: hidden;
+            text-align: right;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            button {
+                background-color: transparent;
+                display: inline-block;
+                border: 0;
+                margin: 0;
+                padding: 0;
+                height: $form-button-height;
+                margin-right: 15px;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            a {
+                display: inline-block;
+                background-color: transparent;
+                height: $form-button-height;
+                margin-right: 15px;
+                padding-left: 5px;
+                padding-right: 5px;
+                text-decoration: none;
+
+                span {
+                    line-height: $form-button-height;
+                }
+            }
+
+            button span,
+            a span {
+                color: $form-button-color;
+                font-size: $form-button-font-size;
+
+                &:hover span {
+                    color: $form-button-color-hover;
+                }
+            }
+        }
+    }
+}

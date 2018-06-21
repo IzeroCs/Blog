@@ -1,0 +1,16 @@
+div#editor-quill .ql-toolbar.ql-snow {
+    background-color: #f0f0f0;
+    border-bottom: 1px dashed #c0c0c0;
+    z-index: 10000;
+}
+
+div#editor-quill .ql-toolbar.shadow.ql-snow {
+    border: 0;
+    @include box-shadow(0 1px 6px rgba(0, 0, 0, 0.2));
+}
+
+div#editor-wrapper,
+div#editor-wrapper .ql-editor {
+    color: #404040;
+    min-height: 150px;
+}

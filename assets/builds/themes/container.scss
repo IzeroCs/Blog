@@ -1,0 +1,6 @@
+div#container {
+    position: relative;
+    top: $header-height;
+    z-index: 1;
+    word-wrap: break-word;
+}

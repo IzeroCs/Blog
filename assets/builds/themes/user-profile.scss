@@ -1,0 +1,133 @@
+div#user-profile {
+    background-color: #ffffff;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+div#user-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+div#user-profile div.wallpaper {
+    position: relative;
+    overflow: hidden;
+    height: 320px;
+    top: 0;
+    left: 0;
+}
+
+div#user-profile div.wallpaper:before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+}
+
+div#user-profile div.avatar {
+    background-color: #505050;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    border: 2px solid #ffffff;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    width: 140px;
+    height: 140px;
+}
+
+div#user-profile span.username {
+    color: #ffffff;
+    font-size: 35px;
+    font-family: "Coda", Tahoma, Verdana, Segoe, sans-serif;
+    line-height: 50px;
+    display: inline-block;
+    position: absolute;
+    bottom: 67px;
+    left: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+@media all and (max-width: 800px) {
+    div#user-profile div.avatar {
+        width: 120px;
+        height: 120px;
+    }
+
+    div#user-profile span.username {
+        font-size: 30px;
+        bottom: 65px;
+        left: 170px;
+    }
+}
+
+@media all and (max-width: 480px) {
+    div#user-profile div.wallpaper {
+        height: 240px;
+    }
+
+    div#user-profile div.avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    div#user-profile div.wallpaper:before {
+        height: 70px;
+    }
+
+    div#user-profile span.username {
+        font-size: 20px;
+        bottom: 52px;
+        left: 130px;
+    }
+}
+
+div#user-profile ul.info,
+div#user-profile ul.info li {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+div#user-profile ul.info li {
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+div#user-profile ul.info li span.icon-rectange {
+    color: #707070;
+    font-size: 5px;
+    margin-right: 3px;
+}
+
+div#user-profile ul.info li span {
+    display: inline-block;
+    font-size: 15px;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+div#user-profile ul.info li span.label {
+    color: #707070;
+    margin-right: 5px;
+}
+
+div#user-profile ul.info li span.value {
+    color: #a0a0a0;
+}

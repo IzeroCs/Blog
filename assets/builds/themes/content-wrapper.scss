@@ -1,0 +1,14 @@
+div#content-wrapper {
+    float: left;
+    width: $content-wrapper-max-width;
+    margin-bottom: $content-wrapper-margin-bottom;
+}
+
+@media all and (max-width: $max-width-mobile) {
+    div#content-wrapper {
+        position: relative;
+        width: 100%;
+        left: auto;
+        right: auto;
+    }
+}

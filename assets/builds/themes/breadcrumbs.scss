@@ -1,0 +1,62 @@
+div.breadcrumbs {
+    display: block;
+    background-color: $breadcrumbs-background;
+    border: $breadcrumbs-border;
+    height: $breadcrumbs-height;
+    padding-left: 10px;
+    margin-bottom: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+
+    & > span {
+        display: inline-block;
+        position: relative;
+        padding-left: 5px;
+        padding-right: 15px;
+        max-width: 120px;
+        height: $breadcrumbs-height;
+        line-height: $breadcrumbs-height;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    & > span:before {
+        content: '';
+        pointer-events: none;
+        border: $breadcrumbs-divider-border;
+        border-left: 0;
+        border-bottom: 0;
+        display: inline-block;
+        transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        position: absolute;
+        top: 20px;
+        right: 5px;
+        width: 10px;
+        height: 10px;
+    }
+
+    & > span:last-child:before {
+        border: 0;
+        pointer-events: none;
+    }
+
+    & > span,
+    & > span span {
+        color: $breadcrumbs-color;
+        font-size: $breadcrumbs-font-size;
+        font-weight: $breadcrumbs-font-weight;
+    }
+
+    & > span:hover,
+    & > span a:hover span {
+        color: $breadcrumbs-color-hover;
+    }
+
+    & > span span.icomoon.icon-home {
+        font-size: $breadcrumbs-icon-home-font-size;
+        line-height: $breadcrumbs-height;
+    }
+}

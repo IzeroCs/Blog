@@ -1,0 +1,19 @@
+img.resolution, div.resolution {
+    width: 100%;
+    object-fit: cover;
+
+    $width: 1440px;
+    $ratio: 2;
+
+    @for $i from 1 through 8 {
+        @media all and (max-width: $width){
+            @if $width <= 800px {
+                height: $width / $ratio;
+            } @else {
+                height: ($width * 66 / 100) / $ratio;
+            }
+        }
+
+        $width: $width - 160;
+    }
+}

@@ -1,0 +1,72 @@
+ul.paging,
+ul.paging li {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: $paging-align;
+}
+
+ul.paging {
+    background-color: $paging-background;
+    width: 100%;
+    height: $paging-height;
+    white-space: nowrap;
+    margin-bottom: 10px;
+
+    li {
+        border: $paging-border;
+        border-right: 0;
+        line-height: $paging-height;
+        height: $paging-height;
+        width: $paging-height;
+
+        &:last-child {
+            border-right: $paging-border;
+        }
+
+        a,
+        span {
+            display: inline-block;
+            width: $paging-height;
+            height: $paging-height;
+
+            @include box-sizing(border-box);
+        }
+
+        span {
+            display: inline-block;
+            font-size: $paging-font-size;
+            font-family: $font-coda;
+        }
+
+        &.current {
+            background-color: $paging-current-color;
+            border-color: $paging-current-color;
+
+            span {
+                color: $paging-current-text-color;
+            }
+
+            & + li {
+                border-left-color: $paging-current-color;
+            }
+        }
+
+        &.jump span {
+            color: $paging-jump-color;
+        }
+
+        &.jump a:hover span {
+            color: $paging-jump-color-hover;
+        }
+
+        &.link span {
+            color: $paging-link-color;
+        }
+
+        &.link a:hover span {
+            color: $paging-link-color-hover;
+        }
+    }
+}

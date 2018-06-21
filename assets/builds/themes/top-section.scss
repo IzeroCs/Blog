@@ -1,0 +1,20 @@
+div#top-section {
+    display: block;
+    background-color: $top-section-background;
+    border-top: $top-section-border-top;
+    margin-top: 1px;
+    padding-left: 50px;
+    padding-right: 50px;
+    height: $top-section-height;
+}
+
+div#top-section h1.logo {
+    color: $top-section-logo-color;
+    display: inline-block;
+    font-size: $top-section-logo-font-size;
+    font-family: $font-top-section;
+    margin: 0;
+    padding: 0;
+    line-height: $top-section-height;
+    height: $top-section-height;
+}

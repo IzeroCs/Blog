@@ -1,0 +1,96 @@
+ul.alert,
+ul.alert li {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.alert {
+    margin-bottom: 30px;
+
+    li {
+        font-size: $alert-item-font-size;
+        background-color: $alert-item-background;
+        border: $alert-item-border;
+        border-left-style: $alert-item-border-left-style;
+        border-left-width: $alert-item-border-left-width;
+        padding: 14px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin: 0;
+        margin-bottom: 8px;
+        word-wrap: break-word;
+    }
+
+    li,
+    li * {
+        color: $alert-item-color;
+    }
+
+    span.icomoon {
+        &.icon-danger,
+        &.icomoon.icon-success,
+        &.icomoon.icon-warning,
+        &.icomoon.icon-info {
+            display: inline-block;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+    }
+
+    li * {
+        line-height: 25px;
+    }
+
+    li a:hover {
+        color: $alert-item-link-color-hover;
+    }
+
+    li.danger {
+        border-left-color: $alert-item-danger-border-color;
+    }
+
+    li.danger,
+    li.danger * {
+        color: $alert-item-danger-color;
+    }
+
+    li.success {
+        border-left-color: $alert-item-success-border-color;
+    }
+
+    li.success,
+    li.success * {
+        color: $alert-item-success-color;
+    }
+
+    li.warning {
+        border-left-color: $alert-item-warning-border-color;
+    }
+
+    li.warning,
+    li.warning * {
+        color: $alert-item-warning-color;
+    }
+
+    li.info {
+        border-left-color: $alert-item-info-border-color;
+    }
+
+    li.info,
+    li.info * {
+        color: $alert-item-info-color;
+    }
+
+    li.info a:hover,
+    li.info a:hover *,
+    li.info * a:hover,
+    li.info * a:hover * {
+        color: $alert-item-info-link-color-hover;
+    }
+
+    &:last-child {
+        margin: 0;
+    }
+}

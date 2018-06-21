@@ -1,0 +1,258 @@
+div#header {
+    background-color: $header-background;
+    border-bottom: $header-border-bottom;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $header-height;
+    z-index: 9999;
+}
+
+div#header span#menu {
+    color: $header-menu-color;
+    font-family: $font-header;
+    display: inline-block;
+    font-size: 25px;
+    line-height: $header-height;
+}
+
+div#header span#menu {
+    float: left;
+    width: $header-height;
+    padding: 0;
+    display: none;
+    border-right: $header-menu-border-right;
+    text-align: center;
+}
+
+@media all and (max-width: $max-width-mobile) {
+    div#header span#menu {
+        display: inline-block;
+    }
+}
+
+div#header span#menu:hover {
+    color: $header-menu-color-hover;
+}
+
+div#header ul#action,
+div#header ul#action li {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+div#header ul#action {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: $header-height;
+}
+
+div#header ul#action > li {
+    display: inline-block;
+    padding-right: 15px;
+    line-height: $header-height;
+}
+
+div#header ul#action > li span {
+    color: $header-action-button-color;
+    font-family: $font-header;
+    font-size: $header-action-button-font-size;
+    font-weight: $header-action-button-font-weight;
+}
+
+div#header ul#action a:hover span {
+    color: $header-action-button-color-hover;
+}
+
+div#header ul#action > li.search {
+    position: relative;
+
+    & > span.icon-search {
+        cursor: pointer;
+        border-left: $header-action-share-border-left;
+        padding: 8px;
+        padding-left: 15px;
+        padding-right: 0;
+    }
+
+    &.show-search:after {
+        content: "";
+        border: 6px solid transparent;
+        border-bottom: 6px solid $header-box-search-background;
+        width: 0;
+        height: 0;
+        position: absolute;
+        bottom: -15px;
+        left: 16px;
+    }
+
+    div.box {
+        background-color: transparent;
+        float: left;
+        position: fixed;
+        display: none;
+        top: 50px;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        line-height: normal;
+
+        div.form-search {
+            background-color: $header-box-search-background;
+            position: absolute;
+            top: 15px;
+            right: 10px;
+            width: $header-box-search-width;
+            @include box-shadow($header-box-search-box-shadow);
+        }
+
+        form {
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        input {
+            color: $header-box-search-input-color;
+            font-family: $font-coda;
+            font-size: $header-box-search-input-font-size;
+            border: 0;
+            border-bottom: $header-box-search-input-border-bottom;
+            height: $header-box-search-input-height;
+            line-height: normal;
+            margin: 0;
+            padding: 0;
+            padding-left: 10px;
+            padding-right: 45px;
+
+            &:focus,
+            &:hover {
+                color: $header-box-search-input-color-hover;
+            }
+        }
+
+        button {
+            background-color: transparent;
+            border: 0;
+            outline: 0;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: $header-box-search-input-height;
+            height: $header-box-search-input-height;
+            line-height: $header-box-search-input-height;
+        }
+
+        ul.result,
+        ul.result li {
+            display: block;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul.result {
+            max-height: $header-box-search-result-max-height;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding-right: 25px;
+            margin-right: -25px;
+
+            li {
+                padding: 10px;
+
+                &.empty {
+                    text-align: center;
+
+                    span {
+                        color: $header-box-search-result-empty-color;
+                        font-family: $font-coda;
+                        font-weight: normal;
+                        font-size: $header-box-search-result-empty-font-size;
+                    }
+                }
+
+                &.alert {
+                    text-align: center;
+
+                    span {
+                        color: $header-box-search-alert-color;
+                        font-family: $font-coda;
+                        font-weight: normal;
+                        font-size: $header-box-search-alert-font-size;
+                    }
+
+                    &.danger span {
+                        color: $alert-item-danger-color;
+                    }
+
+                    &.success span {
+                        color: $alert-item-success-color;
+                    }
+
+                    &.warning span {
+                        color: $alert-item-warning-color;
+                    }
+
+                    &.info span {
+                        color: $alert-item-info-color;
+                    }
+                }
+
+                &.item {
+                    height: $header-box-search-item-height;
+                    padding: 0;
+                    padding-right: 8px;
+                    position: relative;
+                    margin: 0;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+
+                    span {
+                        color: $header-box-search-item-color;
+                        display: inline-block;
+                        line-height: $header-box-search-item-height;
+                        vertical-align: middle;
+
+                        &.icomoon {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: $header-box-search-item-height;
+                            text-align: center;
+                        }
+                    }
+
+                    a {
+                        display: inline-block;
+                        color: $header-box-search-item-color;
+                        line-height: $header-box-search-item-height;
+                        padding-left: $header-box-search-item-height;
+                        width: 100%;
+                    }
+
+                    a:hover span {
+                        color: $header-box-search-item-color-hover;
+                    }
+                }
+            }
+        }
+    }
+}
+
+div#header ul#action span.icomoon {
+    color: $header-action-button-color;
+    font-size: $header-action-button-icon-font-size;
+    font-weight: normal;
+}
+
+div#header ul#action span.icomoon:hover {
+    color: $header-action-button-color-hover;
+}
