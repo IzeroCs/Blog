@@ -240,51 +240,51 @@ img.resolution, div.resolution {
     object-fit: cover;
 }
 
-@media all and (max-width: 1440px) {
+@media all and (min-width: 320px) {
     img.resolution, div.resolution {
-        height: 475.2px;
+        height: 160px;
     }
 }
 
-@media all and (max-width: 1280px) {
-    img.resolution, div.resolution {
-        height: 422.4px;
-    }
-}
-
-@media all and (max-width: 1120px) {
-    img.resolution, div.resolution {
-        height: 369.6px;
-    }
-}
-
-@media all and (max-width: 960px) {
-    img.resolution, div.resolution {
-        height: 316.8px;
-    }
-}
-
-@media all and (max-width: 800px) {
-    img.resolution, div.resolution {
-        height: 400px;
-    }
-}
-
-@media all and (max-width: 640px) {
-    img.resolution, div.resolution {
-        height: 320px;
-    }
-}
-
-@media all and (max-width: 480px) {
+@media all and (min-width: 480px) {
     img.resolution, div.resolution {
         height: 240px;
     }
 }
 
-@media all and (max-width: 320px) {
+@media all and (min-width: 640px) {
     img.resolution, div.resolution {
-        height: 160px;
+        height: 320px;
+    }
+}
+
+@media all and (min-width: 800px) {
+    img.resolution, div.resolution {
+        height: 400px;
+    }
+}
+
+@media all and (min-width: 960px) {
+    img.resolution, div.resolution {
+        height: 316.8px;
+    }
+}
+
+@media all and (min-width: 1120px) {
+    img.resolution, div.resolution {
+        height: 369.6px;
+    }
+}
+
+@media all and (min-width: 1280px) {
+    img.resolution, div.resolution {
+        height: 422.4px;
+    }
+}
+
+@media all and (min-width: 1440px) {
+    img.resolution, div.resolution {
+        height: 475.2px;
     }
 }
 
@@ -1536,6 +1536,10 @@ div.form ul.element > li.input input {
     width: 100%;
 }
 
+div.form ul.element > li.select {
+    padding-right: 0;
+}
+
 div.form ul.element > li.select div.select {
     margin-top: 15px;
     margin-left: 10px;
@@ -1787,6 +1791,11 @@ div#sign form li.button a,
 div#sign form li.button a:hover span,
       div#sign form li.button button:hover span {
     color: #505050;
+}
+
+div#sign form li.button a:first-child:last-child,
+      div#sign form li.button button:first-child:last-child {
+    width: 100%;
 }
 
 div#sign ul.alert {

@@ -85,6 +85,10 @@ div#sign {
                     &:hover span {
                         color: $sign-form-button-color-hover;
                     }
+
+                    &:first-child:last-child {
+                        width: 100%;
+                    }
                 }
             }
         }

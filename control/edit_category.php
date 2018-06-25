@@ -217,7 +217,7 @@
 
         <div id="sidebar-wrapper">
             <div class="sidebar">
-                <?php get_sidebar_list_action(rewrite('url.control.edit_category')); ?>
+                <?php get_control_sidebar_list_action(rewrite('url.control.edit_category')); ?>
                 <?php get_sidebar_about_development(); ?>
                 <?php get_sidebar_info(); ?>
             </div>

@@ -26,8 +26,15 @@
             $schema->varchar('description', 1500)->null();
             $schema->varchar('keyword', 1500)->null();
             $schema->varchar('social_share', 3000)->null();
-            $schema->mediumint('max_size_thumb_upload', 20)->null()->unsigned();
-            $schema->varchar('file_mime_thumb_upload', 500)->null();
+            $schema->mediumint('thumb_size', 20)->null()->unsigned();
+            $schema->varchar('thumb_mime', 500)->null();
+            $schema->varchar('thumb_pixel', 20)->null();
+            $schema->tinyint('enable_sign_up', 2)->null()->unsigned();
+            $schema->tinyint('enable_log_sign_in', 2)->null()->unsigned();
+            $schema->tinyint('enable_protect_sign_in', 2)->null()->unsigned();
+            $schema->tinyint('enable_captcha_sign_in', 2)->null()->unsigned();
+            $schema->tinyint('enable_captcha_sign_up', 2)->null()->unsigned();
+            $schema->int('max_sign_in_failed', 10)->null()->unsigned();
             $schema->int('create_at', 20)->notnull()->unsigned();
             $schema->int('modify_at', 20)->null()->unsigned();
             $schema->engineMyISAM();
@@ -57,19 +64,23 @@
                 'create_at'      => time(),
                 'modify_at'      => 0,
 
-                'max_size_thumb_upload' => (1024 * 1024) << 1,
-
-                'file_mime_thumb_upload' => json_encode([
-                    'image/jpeg',
-                    'image/png',
-                    'image/gif'
-                ]),
+                'thumb_size' => (1024 * 1024) << 1,
+                'thumb_mime' => 'jpeg, png, gif, bmp',
+                'thumb_pixel' => '750x420',
 
                 'social_share' => json_encode([
                     'facebook' => 'https://www.facebook.com/sharer/sharer.php?u={$url}',
                     'google'   => 'https://plus.google.com/share?url={$url}',
                     'twitter'  => 'https://twitter.com/intent/tweet?url={$url}'
-                ])
+                ]),
+
+                'enable_sign_up'         => false,
+                'enable_log_sign_in'     => true,
+                'enable_protect_sign_in' => true,
+                'enable_captcha_sign_in' => true,
+                'enable_captcha_sign_up' => true,
+
+                'max_sign_in_failed' => 5
             ]);
 
             $query->execute();

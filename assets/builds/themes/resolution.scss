@@ -2,11 +2,11 @@ img.resolution, div.resolution {
     width: 100%;
     object-fit: cover;
 
-    $width: 1440px;
+    $width: 320px;
     $ratio: 2;
 
     @for $i from 1 through 8 {
-        @media all and (max-width: $width){
+        @media all and (min-width: $width){
             @if $width <= 800px {
                 height: $width / $ratio;
             } @else {
@@ -14,6 +14,6 @@ img.resolution, div.resolution {
             }
         }
 
-        $width: $width - 160;
+        $width: $width + 160;
     }
 }

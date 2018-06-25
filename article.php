@@ -81,6 +81,9 @@
     if ($queryCategory->execute() !== false)
         $rowsCategory = $queryCategory->rows();
 
+    $_GET[PARAMETER_CONTROL_ARTICLE_ID] = $id;
+
+    SidebarControl::setFileRequire(__DIR__ . SP . 'control' . SP . 'sidebars' . SP . 'action_article.php');
     require_header($assocArticle['title'], ALERT_ARTICLE);
 
     $urlArticle = null;
@@ -146,7 +149,7 @@
                 <div class="content ql-snow"><span class="ql-editor"><?php echo Article::processContentGet($assocArticle['content']); ?></span></div>
                 <div class="divider"></div>
                 <div class="action">
-                    <?php $socials = SettingSystem::getSocialShare(); ?>
+                    <?php $socials = json_decode(SettingSystem::getSocialShare(), true); ?>
 
                     <?php if (is_array($socials) && count($socials) > 0) { ?>
                         <ul class="share">

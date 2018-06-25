@@ -16,7 +16,7 @@
 
         <div id="sidebar-wrapper">
             <div class="sidebar">
-                <?php get_sidebar_list_action(); ?>
+                <?php get_control_sidebar_list_action(); ?>
                 <?php get_sidebar_about_development(); ?>
                 <?php get_sidebar_info(); ?>
             </div>

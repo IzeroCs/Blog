@@ -60,7 +60,7 @@
             $faker = Faker::create();
             $faker->addProvider(new FakerProvider($faker));
 
-            for ($i = 0; $i < 100; ++$i) {
+            for ($i = 0; $i < 50; ++$i) {
                 $query->clear();
                 $query->setCommand(QueryAbstract::COMMAND_INSERT_INTO);
 

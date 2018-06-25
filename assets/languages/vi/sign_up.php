@@ -29,6 +29,7 @@
             'username_exists'            => 'Tên đăng nhập đã tồn tại',
             'email_exists'               => 'Địa chỉ email đã tồn tại',
             'sign_up_failed'             => 'Đăng ký thất bại, hãy thử lại',
-            'sign_up_success'            => 'Đăng ký thành công, bạn hãy đăng nhập'
+            'sign_up_success'            => 'Đăng ký thành công, bạn hãy đăng nhập',
+            'sign_up_is_disable'         => 'Đăng ký đã bị khóa, không thể thực hiện thao tác'
         ]
     ];

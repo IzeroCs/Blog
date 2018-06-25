@@ -182,7 +182,7 @@
                     </li>
                 <?php } ?>
 
-                <?php if (defined('SIGN') == false || SIGN !== 2) { ?>
+                <?php if ((defined('SIGN') == false || SIGN !== 2) && SettingSystem::isEnableSignUp()) { ?>
                     <li>
                         <a href="<?php echo rewrite('url.sign_up'); ?>">
                             <span>SIGN UP</span>

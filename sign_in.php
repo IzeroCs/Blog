@@ -68,9 +68,11 @@
                     <span class="icomoon icon-key"></span>
                 </li>
                 <li class="button">
-                    <a href="<?php echo rewrite('url.sign_up'); ?>" id="sign-up">
-                        <span><?php echo lng('sign_in.button.sign_up'); ?></span>
-                    </a>
+                    <?php if (SettingSystem::isEnableSignUp()) { ?>
+                        <a href="<?php echo rewrite('url.sign_up'); ?>" id="sign-up">
+                            <span><?php echo lng('sign_in.button.sign_up'); ?></span>
+                        </a>
+                    <?php } ?>
                     <button type="submit" name="submit">
                         <span><?php echo lng('sign_in.button.sign_in'); ?></span>
                     </button>

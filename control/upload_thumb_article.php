@@ -59,11 +59,14 @@
         if (isset($_FILES['thumb']))
             $thumb = $_FILES['thumb'];
 
+        if (isset($thumb['type']) && ($separatorIdx = strpos($thumb['type'], '/')) !== false)
+            $thumb['type'] = substr($thumb['type'], $separatorIdx + 1);
+
         if ($thumb == null || empty($thumb['tmp_name'])) {
             Alert::danger(lng('control.upload_thumb_article.alert.not_input_image'));
-        } else if ($thumb['size'] > SettingSystem::getMaxSizeThumbUpload()) {
+        } else if ($thumb['size'] > SettingSystem::getThumbSize()) {
             Alert::danger(lng('control.upload_thumb_article.alert.file_size_large'));
-        } else if (in_array($thumb['type'], SettingSystem::getFileMimeThumbUpload()) == false) {
+        } else if (strpos(SettingSystem::getThumbMime(), $thumb['type']) === false) {
             Alert::danger(lng('control.upload_thumb_article.alert.file_mime_wrong'));
         } else {
             $thumb['name'] = Article::generatorThumbName($thumb['name']);
@@ -152,15 +155,15 @@
         </div>
 
         <script type="text/javascript">
-            onloads.addLoad(function () {
+            function uploadThumbCallHandle() {
                 var dragElement = document.querySelector("div.thumb");
                 var dragInput = document.querySelector("input[type=file]#input-thumb");
-
+console.log("load");
                 if (dragElement === null || dragInput === null)
                     return;
 
-                var mimes = <?php echo Strings::unescape(json_encode(SettingSystem::getFileMimeThumbUpload())); ?>;
-                var sizeMax = <?php echo intval(SettingSystem::getMaxSizeThumbUpload()); ?>;
+                var mimes = "<?php echo SettingSystem::getThumbMime(); ?>";
+                var sizeMax = <?php echo intval(SettingSystem::getThumbSize()); ?>;
                 var notices = {
                     file_error_mime: "<?php echo lng('control.upload_thumb_article.alert.file_mime_wrong'); ?>",
                     file_error_size: "<?php echo lng('control.upload_thumb_article.alert.file_size_large', 'size', FileSystem::sizeToString(SettingSystem::getMaxSizeThumbUpload())); ?>"
@@ -287,12 +290,12 @@
                     e.preventDefault();
                     e.stopPropagation();
                 });
-            });
+            }
         </script>
 
         <div id="sidebar-wrapper">
             <div class="sidebar">
-                <?php get_sidebar_list_action(rewrite('url.control.upload_thumb_article')); ?>
+                <?php get_control_sidebar_list_action(rewrite('url.control.upload_thumb_article')); ?>
                 <?php get_sidebar_about_development(); ?>
                 <?php get_sidebar_info(); ?>
             </div>

@@ -35,7 +35,7 @@
      * @param bool        $print
      * @return null|string
      */
-    function get_sidebar_list_action($urlIgone = null, $print = true)
+    function get_control_sidebar_list_action($urlIgone = null, $print = true)
     {
         SidebarControl::init();
 

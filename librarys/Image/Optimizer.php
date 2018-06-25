@@ -14,7 +14,14 @@
         protected $img;
         protected $error;
 
-        const ERROR_NONE = 0;
+        private static $formats = [
+            'image/jpeg' => 'imagecreatefromjpeg',
+            'image/png'  => 'imagecreatefrompng',
+            'image/gif'  => 'imagecreatefromjpeg',
+            'image/bmp'  => 'imagecreatefrombmp'
+        ];
+
+        const ERROR_NONE            = 0;
         const ERROR_FILE_NOT_EXISTS = 1;
         const ERROR_NOT_IS_IMAGE    = 2;
 
@@ -36,17 +43,15 @@
             $mime     = trim(strtolower($fileinfo['mime']));
             $img      = null;
 
-            if (Strings::equals($mime, self::IMAGE_JPEG)) {
-                $img = imagecreatefromjpeg($filepath);
-            } else if (Strings::equals($mime, self::IMAGE_PNG)) {
-                $img = imagecreatefrompng($filepath);
-            } else if (Strings::equals($mime, self::IMAGE_GIF)) {
-                $img = imagecreatefromgif($filepath);
-            } else {
-                $this->error = self::ERROR_NOT_IS_IMAGE;
-
-                return;
+            foreach (self::$formats AS $m => $function) {
+                if (Strings::equals($mime, $m)) {
+                    $img = $function($filepath);
+                    break;
+                }
             }
+
+            if ($img == null)
+                $this->error = self::ERROR_NOT_IS_IMAGE;
 
             $this->filepath = $filepath;
             $this->fileinfo = $fileinfo;

@@ -11,6 +11,10 @@
     define('ROBOTS', 0);
 
     require_once('global.php');
+
+    if (SettingSystem::isEnableSignUp() == false)
+        Alert::warning(lng('sign_up.alert.sign_up_is_disable'), ALERT_HOME, env('app.http_host'));
+
     require_header(lng('sign_up.title'), ALERT_SIGN_UP);
 
     $username   = null;
